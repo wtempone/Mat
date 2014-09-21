@@ -1,3 +1,4 @@
+/* teste do git */
 /*
     This file is generated and updated by Sencha Cmd. You can edit this file as
     needed for your application, but these edits will have to be merged by
@@ -181,6 +182,7 @@ name:     'Mat',
             100);
     },
     atualizaStore: function(st) { 
+
         if (Ext.device.Connection.isOnline()) {
             // obtem store local "localstorage"
             var storeLocal = Ext.getStore(st+"Local");
