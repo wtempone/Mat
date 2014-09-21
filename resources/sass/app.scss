@@ -1,0 +1,689 @@
+// Cores principais
+$body-bg-color: #222222;
+$base-color: #009873;
+$active-color: #009873;
+
+@import url(http://fonts.googleapis.com/css?family=Poiret+One|Droid+Sans+Mono|Crete+Round|Amatic+SC);
+
+// $font-family: 'Special Elite', cursive !default;
+$font-family: 'Poiret One' , cursive !default;
+// importa estilos do Sencha
+@import 'sencha-touch/default';
+@import 'sencha-touch/default/all';
+
+// Inclui fotes de icones
+//@include icon-font('Pictos', inline-font-files('pictos/pictos-web.woff', woff, 'pictos/pictos-web.ttf', truetype,'pictos/pictos-web.svg', svg));
+//@include icon-font('Typicons', inline-font-files('typicons/typicons.woff', woff, 'typicons/typicons.ttf', truetype,'typicons/typicons.svg', svg));
+
+
+// Mapeia icones personalizados das fontes
+//@include icon('arrow-back-outline', '\e005', 'Typicons');
+//@include icon('arrow-back', '\e006', 'Typicons');
+//@include icon('pause-outline', '\e0ab', 'Typicons');
+//@include icon('pause', '\e0ac', 'Typicons');
+//@include icon('equals-outline', '\e06a', 'Typicons');
+//@include icon('equals', '\e06b', 'Typicons');
+//@include icon('star-outline', '\e108', 'Typicons');
+//@include icon('star', '\e109', 'Typicons');
+//@include icon('clock', '\e10c', 'Typicons');
+//@include icon('blocks', '\e10e', 'Typicons');
+//@include icon('down-outline', '\e007', 'Typicons');
+//@include icon('down', '\e008', 'Typicons');
+//@include icon('th-small-outline', '\e117', 'Typicons');
+//@include icon('th-small', '\e118', 'Typicons');
+//@include icon('sound', '\e134', 'Typicons');
+
+// Efeitos
+
+// Efeitos de animação
+
+@mixin transition-timing-function($timing) {
+    -webkit-transition-timing-function: $timing;
+    -moz-transition-timing-function: $timing;
+    -o-transition-timing-function: $timing;
+    transition-timing-function: $timing;
+}
+
+@mixin animation($animation) {
+    -webkit-animation: $animation;
+  -moz-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+@mixin transition-duration($duration) {
+  -webkit-transition-duration: $duration;
+  -moz-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+}
+
+/**
+ * $keyframes \ gelatine 
+ **/
+@keyframes gelatine{
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }
+  75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+}
+
+@-webkit-keyframes gelatine{
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }
+  75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+}
+
+
+
+// Estilos da Pagina Principal
+
+$main-title-color:#F1EE9C;
+
+.x-main-fundo {
+    @include background-image(radial-gradient( center, ellipse cover, rgba(98,125,77,1) 0%, rgba(8,35,59,1) 100%));
+}
+
+.x-main-logo {
+//	font-family: 'Roboto'; 
+    color: $main-title-color; 
+    font-size: 2em;
+    text-align: center;
+}
+
+$main-button-base-color:  rgba(51,78,94,1);
+
+.x-main-button, .x-sel-nivel-button-botom {
+  
+    @include background-image(
+        linear-gradient( 
+            top, 
+            darken($main-button-base-color, 10%) 0%, 
+            transparentize(darken($main-button-base-color, 5%),.1) 10%, 
+            transparentize(darken($main-button-base-color, 0%),.1) 49%, 
+            transparentize(darken($main-button-base-color, 5%),.1) 74%, 
+            darken($main-button-base-color, 10%) 100%
+        )
+    );
+    border-color: lighten($main-button-base-color, 30%); 
+    color: lighten($main-button-base-color, 30%); 
+    border-width: 1px;    
+    margin: 20px 40px 20px 40px;
+    border-radius: 10em;
+    display: inline-block;
+    @include transition-timing-function(cubic-bezier(.7,4,.3,.8));
+    @include animation (gelatine .6s 1);
+    &:active {
+        @include background-image(
+            linear-gradient( 
+                top, 
+                lighten($main-button-base-color, 10%) 0%, 
+                transparentize(lighten($main-button-base-color, 15%),.1) 10%, 
+                transparentize(lighten($main-button-base-color, 20%),.1) 49%, 
+                transparentize(lighten($main-button-base-color, 15%),.1) 74%, 
+                lighten($main-button-base-color, 10%) 100%
+            )
+        );
+        border-color: lighten($main-button-base-color, 30%); 
+        color: lighten($main-button-base-color, 30%); 
+        border-width: 1px;
+        margin: 20px 40px 20px 40px;
+        border-radius: 10em;
+        display: inline-block;
+        @include transition-timing-function(cubic-bezier(.6,4,.3,.8));
+        @include animation (gelatine .5s 1);
+    }
+}
+
+.x-main-transparent {
+    background: transparent !important;
+    //  border-color: white; 
+    border-width: 0px;
+    color: white; 
+    border-radius: 100%;
+}
+
+.x-main-toggle {
+    background: transparent !important;
+    border-color: white; 
+    border-width: 3px;
+    color: white; 
+    border-radius: 100%;
+}
+
+
+// Estilos da Pagina de Selecao de Niveis
+
+$nivel-fundo-base-color: #335668;
+.x-sel-nivel-fundo {
+//    @include background-image(
+//        linear-gradient( 
+//            top, 
+
+    @include background-image(
+        radial-gradient( 
+            lighten($nivel-fundo-base-color, 0%) 0%, 
+            lighten($nivel-fundo-base-color, 15%) 40%,
+            lighten($nivel-fundo-base-color, 0%) 70%,
+            lighten($nivel-fundo-base-color, 15%) 80%,
+            lighten($nivel-fundo-base-color, 0%) 100%            
+        )
+    );    
+
+}
+
+.x-sel-nivel-logo {
+ //   font-family: 'Roboto'; 
+    color: $main-title-color; 
+    font-size: 2em;
+    text-align: center;
+}
+
+.x-jogo-button-top ,.x-sel-nivel-button-top {
+    background: transparent !important;
+    border-color: $main-title-color; 
+    border-width: 3px;    
+    color: $main-title-color; 
+    border-radius: 100%;
+    margin: 10px 5px 0px 5px;
+    display: inline-block;
+    &:active {
+        @include transition-timing-function(cubic-bezier(.6,4,.3,.8));
+        @include animation (gelatine .6s 1);
+    }
+}
+
+
+//.x-sel-nivel-button-botom{
+//
+//}
+
+.x-sel-nivel-text {
+    text-align:center; 
+    color: $main-title-color; 
+}
+
+.x-nivel-item{
+   margin:.5em 1em .5em 1em;        
+   //padding: 30px 30px 30px 30px;        
+}
+
+.x-nivel-title
+ {
+    @include background-image(
+        linear-gradient( 
+            top, 
+            transparentize(rgba(98,125,77,1), .8) 0%, 
+            transparentize(rgba(8,35,59,1), .8) 100%
+        )
+    );
+ 
+    color: $main-title-color !important;
+    text-align:center; 
+    border-width: 3px;
+    border-radius: .5em;    
+//    margin: 30px 30px 30px 30px;
+    padding:1em 5em 1em 5em;
+    margin:.5em 1em .5em 1em;
+ }
+
+//$nivel-preview-base-color: rgba(98,125,77,1);
+
+.x-nivel-preview
+ {
+    @include background-image(
+        linear-gradient( 
+            top, 
+            transparentize(rgba(98,125,77,1), .5) 0%, 
+            transparentize(rgba(8,35,59,1), .5) 100%
+        )
+    );
+    border-width: 3px;
+    border-radius: .5em;    
+//    margin: 30px 30px 30px 30px;
+    padding: 1em .5em 1em .5em;
+    margin:.5em 1em .5em 1em;
+
+ }
+
+.x-nivel-param-icone {
+    background: transparent !important;
+    margin: 10 10 10 10;
+    border: transparent;
+    color: white; 
+}
+
+.x-nivel-param-text {
+    text-align:center; 
+    vertical-align:middle; 
+    color: $main-title-color; 
+}
+
+.x-nivel-param-values {
+    text-align:center; 
+    vertical-align:middle; 
+    color: darken($main-title-color,20%); 
+ }
+
+.x-nivel-estrelas {
+    background: transparent !important;
+    border: transparent;
+    color: yellow !important; 
+}
+
+// Estilos da Pagina do Jogo
+
+$jogo-fundo-base-color:rgba(51,78,94,1);
+.x-jogo-fundo
+ {
+    //@include background-image(radial-gradient( center, ellipse cover, #CEDCE7 0%, #596a72 100%));
+
+    @include background-image(
+        linear-gradient( 
+            left, 
+            lighten($jogo-fundo-base-color, 10%) 00%, 
+            lighten($jogo-fundo-base-color, 00%) 04%, 
+            lighten($jogo-fundo-base-color, 00%) 010%, 
+            lighten($jogo-fundo-base-color, 20%) 016%, 
+            lighten($jogo-fundo-base-color, 00%) 022%, 
+            lighten($jogo-fundo-base-color, 00%) 028%, 
+            lighten($jogo-fundo-base-color, 20%) 032%, 
+            lighten($jogo-fundo-base-color, 00%) 038%, 
+            lighten($jogo-fundo-base-color, 00%) 044%, 
+            lighten($jogo-fundo-base-color, 20%) 050%, 
+            lighten($jogo-fundo-base-color, 00%) 056%, 
+            lighten($jogo-fundo-base-color, 00%) 062%, 
+            lighten($jogo-fundo-base-color, 20%) 068%, 
+            lighten($jogo-fundo-base-color, 00%) 074%, 
+            lighten($jogo-fundo-base-color, 00%) 080%, 
+            lighten($jogo-fundo-base-color, 20%) 086%, 
+            lighten($jogo-fundo-base-color, 00%) 092%,
+            lighten($jogo-fundo-base-color, 00%) 098%,
+            lighten($jogo-fundo-base-color, 10%) 100%
+        )
+    );
+
+ }
+
+.x-jogo-msgbox
+ {
+    @include background-image(
+        linear-gradient( 
+            top, 
+            transparentize(lighten($main-button-base-color, 25%), .1) 0%, 
+            transparentize(lighten($main-button-base-color, 5%), .1) 100%
+        )
+    );
+    border-width: 1px;
+    border-radius: .5em;    
+    text-align:center; 
+    margin: 1em;
+    padding: 1em;  
+    border-color: lighten($main-button-base-color,40%); 
+    color: lighten($main-button-base-color, 40%);    
+    @include transition-timing-function(cubic-bezier(.7,4,.3,.8));
+    @include animation (gelatine .6s 1);    
+
+ }
+
+.x-jogo-tutorial
+ {
+    @include background-image(
+        linear-gradient( 
+            top, 
+            transparentize(lighten($main-button-base-color, 55%), .5) 0%, 
+            transparentize(lighten($main-button-base-color, 35%), .5) 100%
+        )
+    );
+    border-width: 1px;
+    border-radius: .5em;    
+    text-align:center; 
+    font-size: 1em;    
+    margin: 1em;
+    padding: 1em;  
+    border-color: lighten($main-button-base-color, 0%); 
+    color: lighten($main-button-base-color, 0%);    
+    @include transition-timing-function(cubic-bezier(.7,4,.3,.8));
+    @include animation (gelatine .6s 1);    
+ }
+
+.x-jogo-msgbox-text {
+        
+    padding: 0em 0em 1em 0em;
+
+}
+//.x-field.myCustomField input {
+
+.x-field.x-jogo-msgbox-input {
+    background: transparent !important;
+    padding: 1em;
+//    border: transparent;
+}
+.x-field.x-jogo-msgbox-input input{
+//    border: transparent;
+    background: darken($main-button-base-color, 10%) !important;
+    border-color: lighten($main-button-base-color, 30%); 
+    color: lighten($main-button-base-color, 30%); 
+    border-width: 1px;    
+    vertical-align:middle;     
+    border-radius: 10em;    
+    marging: 1em;
+}
+
+
+.x-jogo-msgbox-button {
+    @include background-image(
+        linear-gradient( 
+            top, 
+            darken($main-button-base-color, 10%) 0%, 
+            transparentize(darken($main-button-base-color, 5%),.1) 10%, 
+            transparentize(darken($main-button-base-color, 0%),.1) 49%, 
+            transparentize(darken($main-button-base-color, 5%),.1) 74%, 
+            darken($main-button-base-color, 10%) 100%
+        )
+    );
+    border-color: lighten($main-button-base-color, 30%); 
+    color: lighten($main-button-base-color, 30%); 
+    border-width: 1px;    
+    margin: 0em .2em 0em .2em;    
+    text-align:center; 
+    vertical-align:middle;     
+    border-radius: 10em;
+    display: inline-block;
+    @include transition-timing-function(cubic-bezier(.7,4,.3,.8));
+    @include animation (gelatine .6s 1);
+    &:active {
+        @include background-image(
+            linear-gradient( 
+                top, 
+                lighten($main-button-base-color, 10%) 0%, 
+                transparentize(lighten($main-button-base-color, 15%),.1) 10%, 
+                transparentize(lighten($main-button-base-color, 20%),.1) 49%, 
+                transparentize(lighten($main-button-base-color, 15%),.1) 74%, 
+                lighten($main-button-base-color, 10%) 100%
+            )
+        );
+        border-color: lighten($main-button-base-color, 30%); 
+        color: lighten($main-button-base-color, 30%); 
+        border-width: 1px;
+        text-align:center; 
+        vertical-align:middle;     
+        margin: 0em .2em 0em .2em;    
+        border-radius: 10em;
+        display: inline-block;
+        @include transition-timing-function(cubic-bezier(.6,4,.3,.8));
+        @include animation (gelatine .5s 1);
+    }
+}
+
+
+.x-jogo-button-semborda {
+    background: transparent !important;
+    border: transparent;
+    color: $main-title-color; 
+}
+
+.x-jogo-estrelas {
+    background: transparent !important;
+    margin: 10 10 10 10;
+    vertical-align:middle;
+    border: transparent;
+    color: yellow !important; 
+}
+
+.x-jogo-placar-pontos-label, .x-jogo-placar-pontos-campo ,.x-jogo-placar-tempo {
+    color: $main-title-color !important;
+    vertical-align:middle;
+    margin: .5em 0em 0em 0em;
+    font-size:1.2em;
+}
+
+.x-jogo-tool-base
+{
+    $main-button-base-color:  rgba(51,78,94,1);
+    
+    @include background-image(
+        linear-gradient( 
+            top, 
+            darken($main-button-base-color, 10%) 0%, 
+            transparentize(darken($main-button-base-color, 5%),.1) 10%, 
+            transparentize(darken($main-button-base-color, 0%),.1) 49%, 
+            transparentize(darken($main-button-base-color, 5%),.1) 74%, 
+            darken($main-button-base-color, 10%) 100%
+        )
+    );
+    border-color: lighten($main-button-base-color, 30%); 
+    color: lighten($main-button-base-color, 30%); 
+    border-width: 1px;    
+    border-radius: .5em;
+    display: inline-block;
+    @include transition-timing-function(cubic-bezier(.7,4,.3,.8));
+    @include animation (gelatine .6s 1);
+}
+
+.x-jogo-tool-apagar, .x-jogo-tool-calcular 
+{
+
+    @include background-image(
+        linear-gradient( 
+            top, 
+            darken($main-button-base-color, 10%) 0%, 
+            transparentize(darken($main-button-base-color, 5%),.1) 10%, 
+            transparentize(darken($main-button-base-color, 0%),.1) 49%, 
+            transparentize(darken($main-button-base-color, 5%),.1) 74%, 
+            darken($main-button-base-color, 10%) 100%
+        )
+    );
+    border-color: lighten($main-button-base-color, 30%); 
+    color: lighten($main-button-base-color, 30%); 
+    border-width: 1px;    
+    margin: 0px;
+    vertical-align:middle;     
+    border-radius: .5em;
+    display: inline-block;
+    @include transition-timing-function(cubic-bezier(.7,4,.3,.8));
+    @include animation (gelatine .6s 1);
+    &:active {
+        @include background-image(
+            linear-gradient( 
+                top, 
+                lighten($main-button-base-color, 10%) 0%, 
+                transparentize(lighten($main-button-base-color, 15%),.1) 10%, 
+                transparentize(lighten($main-button-base-color, 20%),.1) 49%, 
+                transparentize(lighten($main-button-base-color, 15%),.1) 74%, 
+                lighten($main-button-base-color, 10%) 100%
+            )
+        );
+        border-color: lighten($main-button-base-color, 30%); 
+        color: lighten($main-button-base-color, 30%); 
+        border-width: 1px;
+        margin: 0px;
+        vertical-align:middle;     
+        border-radius: .5em;
+        display: inline-block;
+        @include transition-timing-function(cubic-bezier(.6,4,.3,.8));
+        @include animation (gelatine .5s 1);
+    }
+}
+
+.x-jogo-tool-operation
+{
+    font-size:1.2em;
+}
+
+//.x-jogo-tool-calcular
+//{
+//    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#22AB07), to(#1B6B1B), color-stop(.3,#A9D6AE)) //!important;
+//}
+
+// Estilos para geração das cartas
+
+$cartas: 0,
+         1, 
+         2, 
+         3, 
+         4, 
+         5, 
+         6, 
+         7, 
+         8, 
+         9, 
+         10, 
+         11 , 
+         12, 
+         13;
+
+$cartascolors:  #706FF7,
+                #72BB72,
+                #FBE868,
+                #83EAEF,
+                #FFCAFF,
+                #F16178,
+                #FFD769,
+                #ED7DC5,
+                #FEC671,
+                #99B078,
+                #33FF55,
+                #FF9933,
+                #FF3300,
+                #3366CC;
+
+
+@for $i from 1 through length($cartas) {
+
+    $this-color: nth($cartascolors, $i) ; 
+
+    .x-carta-#{nth($cartas, $i)} {
+
+        @include background-image(
+            radial-gradient( 
+                center, ellipse cover, 
+                $this-color 0%, 
+                lighten($this-color, 15%) 100%
+            )
+        );        
+        color: darken($this-color, 35%) !important ; 
+        border-width: 1px;    
+        border-color: darken($this-color, 15%); 
+        vertical-align:middle !important;
+        text-align:center;
+        //@include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 1), inset);
+
+    }
+
+    .x-carta-b-#{nth($cartas, $i)} {
+
+        @include background-image(
+            radial-gradient( 
+                center, ellipse cover, 
+                lighten($this-color, 20%) 0%, 
+                lighten($this-color, 35%) 100%
+            )
+        );        
+        color: lighten($this-color, 15%) !important ; 
+        border-width: 1px;    
+        border-color: lighten($this-color, 25%) !important ;
+        vertical-align:middle !important;
+        text-align:center;
+        //@include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 1), inset);
+
+
+        //@include transition-timing-function(cubic-bezier(.7,4,.3,.8));
+        //@include animation (gelatine .6s);
+        //@include animation (gelatine .6s infinite);
+    }
+}
+
+.drop-shadow{
+  position: relative;
+  //width: 90%;
+  background-color: skyblue;
+}
+
+.drop-shadow:before,
+.drop-shadow:after{
+  /* basic */
+  content: "";
+  position: absolute;
+  z-index: -1;
+  
+  /* dimensions */  
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  height: 20px;
+  
+  /* shadow */
+  box-shadow: 0 15px 10px rgba(0,0,0,0.7);
+  transform:rotate(-3deg);
+  
+  /* one more trick */
+  //max-width: 300px;
+}
+
+.drop-shadow:after{
+  right: 10px;
+  left: auto;
+  transform:rotate(3deg);
+}
+
+p{ padding: 20px;}
+
+.x-trasparentize-button {
+    background: transparent !important;
+}

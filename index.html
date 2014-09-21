@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Mat</title>
+    <style type="text/css">
+        @import url(http://fonts.googleapis.com/css?family=Poiret+One|Droid+Sans+Mono|Crete+Round|Amatic+SC);
+        body {
+          background-color: #009873;
+        }
+        h1 {
+          font-family: Poiret One;
+          position: absolute;
+          font-size: 30px;
+          text-align: center;
+          //display: block;
+          color: #fff;
+          top: 35%;
+          width: 100%;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-transform: translate3d(0,0,0);
+          -moz-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+        }
+        h2 {
+          font-family: Droid Sans Mono;
+          font-size: .5em;
+          font-weight: 2;
+          position: absolute;
+          text-align: center;
+          display: block;
+          color: #fff;
+          top: 70%;
+          width: 100%;
+          margin-top: -55px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-transform: translate3d(0,0,0);
+          -moz-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+          opacity: 0;
+          -webkit-animation: anim 3.2s ease-out forwards 1s infinite;
+          animation: anim 3.2s ease-out forwards 1s infinite;
+        }
+        h3 {
+          font-family: Crete Round;
+          font-weight: 1;
+          position: absolute;
+          text-align: center;
+          display: block;
+          color: #fff;
+          top: 90%;
+          width: 100%;
+          margin-top: -55px;
+          //text-transform: uppercase;
+          letter-spacing: 1px;
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-transform: translate3d(0,0,0);
+          -moz-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+        //  opacity: 0;
+        //  -webkit-animation: anim 3.2s ease-out forwards 1s infinite;
+        //  animation: anim 3.2s ease-out forwards 1s infinite;
+        }
+
+        @-webkit-keyframes anim {
+          0% {
+            text-shadow: 0 0 50px #fff;
+            letter-spacing: 0px;
+            opacity: 0.8;
+            -webkit-transform: rotateY(0deg);
+          }
+          50% {
+            text-shadow: 0 0 1px #fff;
+            letter-spacing: 8px;
+            opacity: 0.8;
+            -webkit-transform: rotateY(0deg);
+          }
+          75% {
+            text-shadow: 0 0 1px #fff;
+            opacity: 0.8;
+            -webkit-transform: rotateY(0deg) translateZ(60px);
+          }
+          100% {
+            text-shadow: 0 0 1px #fff;
+            opacity: 0.8;
+            letter-spacing: 0px;
+            -webkit-transform: rotateY(0deg) translateZ(100px);
+          }
+
+        }
+        @keyframes anim {
+          0% {
+            text-shadow: 0 0 50px #fff;
+            letter-spacing: 80px;
+            opacity: 0.8;
+            -moz-transform: rotateY(-90deg);
+          }
+          50% {
+            text-shadow: 0 0 1px #fff;
+            opacity: 0.8;
+            -moz-transform: rotateY(0deg);
+          }
+          75% {
+            text-shadow: 0 0 1px #fff;
+            opacity: 0.8;
+            -moz-transform: rotateY(0deg) translateZ(60px);
+          }
+          100% {
+            text-shadow: 0 0 1px #fff;
+            opacity: 0.8;
+            letter-spacing: 8px;
+            -moz-transform: rotateY(0deg) translateZ(100px);
+          }
+
+        }
+    </style>
+    <!-- The line below must be kept intact for Sencha Command to build your application -->
+    <script id="microloader" type="text/javascript" src=".sencha/app/microloader/development.js"></script>
+</head>
+<body>
+    <div id="appLoadingIndicator">
+        <div></div>
+            <h1>Matematrics<h1>
+            <h2>Carregando<h2>
+            <h3>tempsgames<h3>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+// Cores principais
+$body-bg-color: #222222;
+$base-color: #168cc7;
+$active-color: #168cc7;
+
+
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+// fonte default
+
+//$font-family: 'Roboto' !default;
+//$font-family: 'Vast Shadow', cursive !default;
+$font-family: 'Special Elite', cursive !default;
+// importa estilos do Sencha
+@import 'sencha-touch/cupertino';
+@import 'sencha-touch/cupertino/all';
+
+// Inclui fotes de icones
+//@include icon-font('Pictos', inline-font-files('pictos/pictos-web.woff', woff, 'pictos/pictos-web.ttf', truetype,'pictos/pictos-web.svg', svg));
+//@include icon-font('Typicons', inline-font-files('typicons/typicons.woff', woff, 'typicons/typicons.ttf', truetype,'typicons/typicons.svg', svg));
+
+
+// Mapeia icones personalizados das fontes
+//@include icon('arrow-back-outline', '\e005', 'Typicons');
+//@include icon('arrow-back', '\e006', 'Typicons');
+//@include icon('pause-outline', '\e0ab', 'Typicons');
+//@include icon('pause', '\e0ac', 'Typicons');
+//@include icon('equals-outline', '\e06a', 'Typicons');
+//@include icon('equals', '\e06b', 'Typicons');
+//@include icon('star-outline', '\e108', 'Typicons');
+//@include icon('star', '\e109', 'Typicons');
+//@include icon('clock', '\e10c', 'Typicons');
+//@include icon('blocks', '\e10e', 'Typicons');
+//@include icon('down-outline', '\e007', 'Typicons');
+//@include icon('down', '\e008', 'Typicons');
+//@include icon('th-small-outline', '\e117', 'Typicons');
+//@include icon('th-small', '\e118', 'Typicons');
+//@include icon('sound', '\e134', 'Typicons');
+
+// Efeitos
+
+// Efeitos de animação
+
+@mixin transition-timing-function($timing) {
+    -webkit-transition-timing-function: $timing;
+    -moz-transition-timing-function: $timing;
+    -o-transition-timing-function: $timing;
+    transition-timing-function: $timing;
+}
+
+@mixin animation($animation) {
+    -webkit-animation: $animation;
+  -moz-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+@mixin transition-duration($duration) {
+  -webkit-transition-duration: $duration;
+  -moz-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+}
+
+/**
+ * $keyframes \ gelatine 
+ **/
+
+@keyframes gelatine{
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }
+  75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+}
+
+@-webkit-keyframes gelatine{
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }
+  75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+}
+
+
+
+.x-sel-nivel-fundo {
+    @include background-image(
+        radial-gradient( 
+            lighten($nivel-fundo-base-color, 0%) 0%, 
+            lighten($nivel-fundo-base-color, 15%) 40%,
+            lighten($nivel-fundo-base-color, 0%) 70%,
+            lighten($nivel-fundo-base-color, 15%) 80%,
+            lighten($nivel-fundo-base-color, 0%) 100%            
+        )
+    );    
+}
+
+// Estilos para geração das cartas
+
+$cartas: 0,
+         1, 
+         2, 
+         3, 
+         4, 
+         5, 
+         6, 
+         7, 
+         8, 
+         9, 
+         10, 
+         11 , 
+         12, 
+         13;
+
+$cartascolors:  #706FF7,
+                #72BB72,
+                #FBE868,
+                #83EAEF,
+                #FFCAFF,
+                #F16178,
+                #FFD769,
+                #ED7DC5,
+                #FEC671,
+                #99B078,
+                #33FF55,
+                #FF9933,
+                #FF3300,
+                #3366CC;
+
+
+@for $i from 1 through length($cartas) {
+
+    $this-color: nth($cartascolors, $i) ; 
+
+    .x-carta-#{nth($cartas, $i)} {
+
+        @include background-image(
+            radial-gradient( 
+                center, ellipse cover, 
+                transparentize($this-color, .2) 0%, 
+                lighten($this-color, 15%) 100%
+            )
+        );        
+        color: darken($this-color, 25%) !important ; 
+        border-width: 1px;    
+        border-color: darken($this-color, 25%); 
+        //border-radius: .5em;
+        vertical-align:middle !important;
+        text-align:center;
+        //@include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 1), inset);
+
+
+    }
+
+    .x-carta-b-#{nth($cartas, $i)} {
+
+        @include background-image(
+            radial-gradient( 
+                center, ellipse cover, 
+                transparentize($this-color, .85) 0%, 
+                transparentize(lighten($this-color, 15%), .85) 100%
+            )
+        );        
+        color: transparentize(darken($this-color, 25%), .85) !important ; 
+        border-width: 1px;    
+        border-color: transparentize(darken($this-color, 25%), .85); 
+        //border-radius: .5em;
+        vertical-align:middle !important;
+        text-align:center;
+        @include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 1), inset);
+
+
+        //@include transition-timing-function(cubic-bezier(.7,4,.3,.8));
+        //@include animation (gelatine .6s);
+        //@include animation (gelatine .6s infinite);
+    }
+}
